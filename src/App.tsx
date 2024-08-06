@@ -3,6 +3,8 @@ import ImageCard from './components/ImageCard/ImageCard';
 import ImageGrid from './components/ImageGrid/ImageGrid';
 import useInfiniteScroll from './hooks/useInfiniteScroll';
 import { useGetImages } from './hooks/useGetImages';
+import Spinner from './components/Spinner/Spinner';
+import styles from './App.module.css';
 
 const App = () => {
   const [page, setPage] = useState(0);
@@ -13,10 +15,12 @@ const App = () => {
     setPage((prevPage) => prevPage + 1);
   });
 
+  if (error) {
+    return <div>Failed to retrieve images.</div>;
+  }
+
   return (
     <>
-      {error && <div>Failed to load images.</div>}
-      {loading && <div>Loading...</div>}
       <ImageGrid>
         {images.map((image, index) => (
           <div ref={images.length === index + 1 ? lastImageElementRef : null} key={`${image.id}-${index}`}>
@@ -24,6 +28,7 @@ const App = () => {
           </div>
         ))}
       </ImageGrid>
+      {loading && <Spinner className={images.length ? styles.scrollSpinner : ''} />}
     </>
   );
 };
