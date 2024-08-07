@@ -30,7 +30,18 @@ const ImageCard = ({ image }: Props) => {
 
   return (
     <article className={styles.card}>
-      <img src={image.src.landscape} loading="lazy" alt={image.alt} />
+      <img
+        src={image.src.landscape}
+        srcSet={`
+          ${image.src.tiny} 280w, 
+          ${image.src.medium} 350w, 
+          ${image.src.large} 940w, 
+          ${image.src.landscape} 1200w
+        `}
+        sizes="(max-width: 340px) 280px, (max-width: 410px) 350px, (max-width: 1000px) 940px, 1200px"
+        loading="lazy"
+        alt={image.alt}
+      />
       <div className={styles.cardPanel}>
         <div className={styles.details}>
           <span className={styles.title} title={image.alt}>
