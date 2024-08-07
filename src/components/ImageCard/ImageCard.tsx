@@ -24,7 +24,8 @@ const ImageCard = ({ image }: Props) => {
     } else {
       await addFavourite(image.id);
     }
-    setIsFavourite(!isFavourite);
+    const favouriteStatus = await getFavouriteStatus(image.id);
+    setIsFavourite(favouriteStatus);
   };
 
   return (

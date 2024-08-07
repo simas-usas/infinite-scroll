@@ -5,10 +5,6 @@ interface Props {
   className?: string;
 }
 
-const Spinner = ({ className }: Props) => (
-  <div>
-    <SpinnerIcon className={`${style.spinner} ${className}`} />
-  </div>
-);
+const Spinner = ({ className }: Props) => <SpinnerIcon className={`${style.spinner} ${className}`} />;
 
 export default Spinner;
