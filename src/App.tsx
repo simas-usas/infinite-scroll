@@ -17,7 +17,7 @@ const App = () => {
   }
 
   return (
-    <>
+    <main>
       <ImageGrid>
         {images.map((image, index) => (
           <div ref={images.length === index + 1 ? lastImageElementRef : null} key={`${image.id}-${index}`}>
@@ -26,7 +26,7 @@ const App = () => {
         ))}
       </ImageGrid>
       {loading && <Spinner className={images.length ? styles.scrollSpinner : ''} />}
-    </>
+    </main>
   );
 };
 

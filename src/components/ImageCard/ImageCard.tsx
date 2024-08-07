@@ -29,7 +29,7 @@ const ImageCard = ({ image }: Props) => {
   };
 
   return (
-    <div className={styles.card}>
+    <article className={styles.card}>
       <img src={image.src.landscape} loading="lazy" alt={image.alt} />
       <div className={styles.cardPanel}>
         <div className={styles.details}>
@@ -39,11 +39,16 @@ const ImageCard = ({ image }: Props) => {
           {image.alt && <div className={styles.divider} />}
           <span className={styles.photographer}>{image.photographer}</span>
         </div>
-        <button className={`${styles.favouriteButton} ${isFavourite ? styles.favourited : ''}`} onClick={handleClick}>
+        <button
+          aria-pressed={isFavourite}
+          aria-label="favourite button"
+          className={`${styles.favouriteButton} ${isFavourite ? styles.favourited : ''}`}
+          onClick={handleClick}
+        >
           {isFavourite ? 'Unfavourite' : 'Favourite'}
         </button>
       </div>
-    </div>
+    </article>
   );
 };
 
