@@ -10,7 +10,7 @@ const App = () => {
 
   const lastImageElementRef = useInfiniteScroll(() => {
     setPage((prevPage) => prevPage + 1);
-  });
+  }, loading);
 
   if (error) {
     return <div>Failed to retrieve images.</div>;
