@@ -36,7 +36,8 @@
   z-index: 1;
 }
 
-.card:hover::after {
+.card:hover::after,
+.card:focus-within::after {
   background: rgba(0, 0, 0, 0.4);
 }
 
@@ -69,7 +70,8 @@
   align-items: center;
 }
 
-.card:hover .cardPanel {
+.card:hover .cardPanel,
+.card:focus-within .cardPanel {
   opacity: 1;
 }
 
@@ -106,12 +108,14 @@
   transition: background 0.5s ease;
 }
 
-.favouriteButton:hover {
+.favouriteButton:hover,
+.favouriteButton:focus {
   background-color: rgba(1, 119, 131, 0.5);
 }
 
 .favouriteButton:active,
 .favourited,
-.favourited:hover {
+.favourited:hover,
+.favourited:focus {
   background-color: rgba(1, 119, 131, 1);
 }
