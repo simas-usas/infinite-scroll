@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import ImageCard from './components/ImageCard/ImageCard';
-import ImageGrid from './components/ImageGrid/ImageGrid';
-import useInfiniteScroll from './hooks/useInfiniteScroll';
-import { useGetImages } from './hooks/useGetImages';
-import Spinner from './components/Spinner/Spinner';
+import { ImageCard, ImageGrid, Spinner } from '#components';
+import { useGetImages, useInfiniteScroll } from '#hooks';
 import styles from './App.module.css';
 
 const App = () => {

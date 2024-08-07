@@ -1,4 +1,4 @@
-import { Spinner as SpinnerIcon } from '../../assets';
+import { Spinner as SpinnerIcon } from '#assets';
 import style from './Spinner.module.css';
 
 interface Props {

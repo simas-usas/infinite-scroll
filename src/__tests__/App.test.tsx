@@ -1,7 +1,7 @@
 import App from '../App';
 import { Mock } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
-import { mockImage } from './mocks/mockImages';
+import { mockImage } from '#mocks/mockImages';
 
 describe('App', () => {
   it('renders App with fetched images', async () => {

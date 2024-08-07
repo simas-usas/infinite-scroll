@@ -1,6 +1,6 @@
-import { Photo } from '../../api/models';
+import { Photo } from '#api/models';
 import styles from './ImageCard.module.css';
-import { getFavouriteStatus, addFavourite, removeFavourite } from '../../db/indexedDb';
+import { getFavouriteStatus, addFavourite, removeFavourite } from '#db/indexedDb';
 import { useEffect, useState } from 'react';
 
 interface Props {

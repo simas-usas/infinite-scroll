@@ -25,7 +25,19 @@
     ],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "#api/*": ["./src/api/*"],
+      "#assets/*": ["./src/assets/*"],
+      "#assets": ["./src/assets/index.ts"],
+      "#components/*": ["./src/components/*"],
+      "#components": ["./src/components/index.ts"],
+      "#db/*": ["./src/db/*"],
+      "#hooks/*": ["./src/hooks/*"],
+      "#hooks": ["./src/hooks/index.ts"],
+      "#mocks/*": ["./src/__tests__/mocks/*"],
+    }
   },
   "include": ["src"]
 }

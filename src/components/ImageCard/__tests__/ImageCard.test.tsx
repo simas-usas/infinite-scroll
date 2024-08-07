@@ -1,5 +1,5 @@
-import { mockImage } from '../../../__tests__/mocks/mockImages';
-import { addFavourite } from '../../../db/indexedDb';
+import { mockImage } from '#mocks/mockImages';
+import { addFavourite } from '#db/indexedDb';
 import ImageCard from '../ImageCard';
 import { fireEvent, screen, render, waitFor } from '@testing-library/react';
 

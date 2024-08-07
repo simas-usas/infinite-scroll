@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Photo } from '../api/models';
-import { fetchImages } from '../api/images';
+import { Photo } from '#api/models';
+import { fetchImages } from '#api/images';
 
-export const useGetImages = (page: number) => {
+const useGetImages = (page: number) => {
   const [images, setImages] = useState<Photo[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
@@ -28,3 +28,5 @@ export const useGetImages = (page: number) => {
 
   return { images, loading, error };
 };
+
+export default useGetImages;
