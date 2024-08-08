@@ -7,4 +7,5 @@ globalThis.indexedDB = indexeddb;
 
 afterEach(() => {
   cleanup();
+  vi.clearAllMocks();
 });
