@@ -3,6 +3,11 @@ import { Mock } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import { mockImage } from '#mocks/mockImages';
 
+vi.mock('react', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('react')>()),
+  useRef: () => ({ current: false }),
+}));
+
 describe('App', () => {
   it('renders App with fetched images', async () => {
     const mockFetch = vi.fn(() =>
