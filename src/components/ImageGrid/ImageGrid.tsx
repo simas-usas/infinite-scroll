@@ -5,7 +5,11 @@ interface Props {
 }
 
 const ImageGrid = ({ children }: Props) => {
-  return <div className={styles.grid}>{children}</div>;
+  return (
+    <div className={styles.grid} data-testid="image-grid">
+      {children}
+    </div>
+  );
 };
 
 export default ImageGrid;

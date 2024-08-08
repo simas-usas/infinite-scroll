@@ -24,8 +24,35 @@ describe('App', () => {
 
     render(<App />);
 
+    expect(screen.getByTestId('spinner')).toBeInTheDocument();
     await waitFor(() => expect(screen.getByText('Test Image')).toBeInTheDocument());
     await waitFor(() => expect(screen.getByText('Test Tester')).toBeInTheDocument());
+  });
+
+  it('renders App with images not found message', async () => {
+    const mockFetch = vi.fn(() =>
+      Promise.resolve({
+        json: () => Promise.reject('test error'),
+      }),
+    ) as Mock;
+
+    vi.stubGlobal('fetch', mockFetch);
+
+    const IntersectionObserverMock = vi.fn(() => ({
+      disconnect: vi.fn(),
+      observe: vi.fn(),
+      takeRecords: vi.fn(),
+      unobserve: vi.fn(),
+    }));
+
+    vi.stubGlobal('IntersectionObserver', IntersectionObserverMock);
+
+    const consoleSpy = vi.spyOn(console, 'error');
+
+    render(<App />);
+
+    await waitFor(() => expect(screen.getByText('Failed to retrieve images.')).toBeInTheDocument());
+    await waitFor(() => expect(consoleSpy).toHaveBeenLastCalledWith('Failed to fetch images:', 'test error'));
   });
 
   it('fetch images when scrolling to bottom', async () => {
