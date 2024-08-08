@@ -25,6 +25,7 @@ describe('App', () => {
     render(<App />);
 
     expect(screen.getByTestId('spinner')).toBeInTheDocument();
+    await waitFor(() => expect(mockFetch).toHaveBeenCalledOnce());
     await waitFor(() => expect(screen.getByText('Test Image')).toBeInTheDocument());
     await waitFor(() => expect(screen.getByText('Test Tester')).toBeInTheDocument());
   });
