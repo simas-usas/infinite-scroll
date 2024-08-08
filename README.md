@@ -4,7 +4,7 @@ Application that renders a grid of images with an infinite scroll. Users are giv
 
 Made using React, TypeScript and Vite.
 
-To launch the project, set up a local .env file with the necessary variables provided in the example. Locally run the following command:
+To launch the project, set up a local .env file with the necessary variables provided in the example. Make sure you have Node.js version 17 or higher installed.  Locally run the following command:
 
 ```
 npm run dev
